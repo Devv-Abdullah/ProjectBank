@@ -31,7 +31,8 @@ select {
   font-size: 20px;
   padding: 10px;
   border-radius: 5px;
-  background: rgb(70, 0, 70);
+  /* background: rgb(70, 0, 70); */
+  background: lightskyblue;
   color: white;
 }
 

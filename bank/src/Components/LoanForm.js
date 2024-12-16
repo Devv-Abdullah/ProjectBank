@@ -10,18 +10,37 @@ export default function LoanFrom() {
     isEmployee: false,
     salaryRange: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    alert("hello");
+
+    const { age, phoneNumber } = inputs;
+    setErrorMessage(null);
+    if (age < 18 || age > 100) {
+      setErrorMessage("The age is not allowed");
+    } else if (phoneNumber.length < 10 || phoneNumber.length > 12) {
+      setErrorMessage("Phone number format is incorrect");
+    }
+    setShowModal(true);
   }
 
   const btnDisabled =
-    inputs.name == "" || inputs.age == "" || inputs.phoneNumber == "";
+    inputs.name == "" ||
+    inputs.age == "" ||
+    inputs.phoneNumber == "" ||
+    inputs.isEmployee == "";
+
+  function handelDivClick() {
+    if (showModal == true) {
+      setShowModal(false);
+    }
+  }
 
   return (
     //flex => container
-    <div className="container">
+    <div onClick={handelDivClick} className="container">
       <form id="loan-form" className="container">
         <h1>Requesting a Loan</h1>
         <hr></hr>
@@ -81,7 +100,7 @@ export default function LoanFrom() {
         </button>
       </form>
 
-      {/* <Modal /> */}
+      <Modal isVisible={showModal} errormessage={errorMessage} />
     </div>
   );
 }
