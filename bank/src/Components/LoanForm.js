@@ -85,6 +85,7 @@ export default function LoanFrom() {
             setInputs({ ...inputs, salaryRange: event.target.value });
           }}
         >
+          <option>Select salary range</option>
           <option>less than 500$</option>
           <option>between 500$ and 2000$</option>
           <option>above 2000$</option>
