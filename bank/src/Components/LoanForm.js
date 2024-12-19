@@ -1,6 +1,7 @@
 import "./Style/FormStyles.css";
 import Modal from "./modal";
 import { useState } from "react";
+import MyComponent from "./MyComponent";
 
 export default function LoanFrom() {
   const [inputs, setInputs] = useState({
@@ -53,13 +54,18 @@ export default function LoanFrom() {
           }}
         />
 
-        <label>Phone Number:</label>
+        <MyComponent
+          value={inputs.phoneNumber}
+          handelChange={setInputs}
+          currentInputs={inputs}
+        />
+        {/* <label>Phone Number:</label>
         <input
           value={inputs.phoneNumber}
           onChange={(event) => {
             setInputs({ ...inputs, phoneNumber: event.target.value });
           }}
-        />
+        /> */}
 
         <label>Age:</label>
         <input
