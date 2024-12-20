@@ -39,6 +39,10 @@ export default function LoanFrom() {
     }
   }
 
+  function handlePhoneNumberChange(value) {
+    setInputs({ ...inputs, phoneNumber: value });
+  }
+
   return (
     //flex => container
     <div onClick={handelDivClick} className="container">
@@ -56,8 +60,8 @@ export default function LoanFrom() {
 
         <MyComponent
           value={inputs.phoneNumber}
-          handelChange={setInputs}
-          currentInputs={inputs}
+          handelChange={handlePhoneNumberChange}
+          // currentInputs={inputs}
         />
         {/* <label>Phone Number:</label>
         <input
