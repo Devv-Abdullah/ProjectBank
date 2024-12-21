@@ -39,8 +39,16 @@ export default function LoanFrom() {
     }
   }
 
+  function handlePhoneNameChange(value) {
+    setInputs({ ...inputs, name: value });
+  }
+
   function handlePhoneNumberChange(value) {
     setInputs({ ...inputs, phoneNumber: value });
+  }
+
+  function handleAgeChange(value) {
+    setInputs({ ...inputs, age: value });
   }
 
   return (
@@ -50,33 +58,30 @@ export default function LoanFrom() {
         <h1>Requesting a Loan</h1>
         <hr></hr>
 
-        <label>Name:</label>
+        <MyComponent
+          title="Name:"
+          value={inputs.name}
+          handelChange={handlePhoneNameChange}
+        />
+        {/* <label>Name:</label>
         <input
           value={inputs.name}
           onChange={(event) => {
             setInputs({ ...inputs, name: event.target.value });
           }}
-        />
+        /> */}
 
         <MyComponent
+          title="Phone Number:"
           value={inputs.phoneNumber}
           handelChange={handlePhoneNumberChange}
           // currentInputs={inputs}
         />
-        {/* <label>Phone Number:</label>
-        <input
-          value={inputs.phoneNumber}
-          onChange={(event) => {
-            setInputs({ ...inputs, phoneNumber: event.target.value });
-          }}
-        /> */}
 
-        <label>Age:</label>
-        <input
+        <MyComponent
+          title="Age:"
           value={inputs.age}
-          onChange={(event) => {
-            setInputs({ ...inputs, age: event.target.value });
-          }}
+          handelChange={handleAgeChange}
         />
 
         <label style={{ marginTop: "30px" }}>Are you an employee?</label>

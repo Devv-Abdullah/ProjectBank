@@ -1,7 +1,7 @@
-export default function MyComponent({ value, handelChange }) {
+export default function MyComponent({ value, handelChange, title }) {
   return (
     <>
-      <label>Phone Number:</label>
+      <label>{title}</label>
       <input
         value={value}
         onChange={(event) => {
